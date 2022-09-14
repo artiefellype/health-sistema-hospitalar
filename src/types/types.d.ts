@@ -22,3 +22,23 @@ export interface TitleH1{
     margin?: number;
     padding?: number;
 }
+
+// Input
+export interface Input{
+    id?: string;
+    type?: string;
+    placeholder?: string;
+    value?: string;
+    name?: string;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    padding?: number;
+    margin?: number;
+    width?: number;
+    height?: number;
+    border?: string;
+    borderRadius?: number;
+    fontSize?: number;
+    color?: string;
+    background?: string;
+    placeholderColor?: string;
+}

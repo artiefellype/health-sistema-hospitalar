@@ -1,9 +1,7 @@
 import {H1} from './styles';
-import { TitleH1 } from '../../types/types';
-
-export default function Title({children, ...props}: any){
+export default function Title({children, TitleH1}: any){
     return(
-        <H1 color={props?.color} font={props?.font} margin={props?.margin} padding={props?.padding} >
+        <H1 color={TitleH1?.color} font={TitleH1?.font} margin={TitleH1?.margin} padding={TitleH1?.padding} >
             {children}
         </H1>
     )

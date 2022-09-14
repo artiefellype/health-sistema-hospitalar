@@ -1,6 +1,6 @@
 import { AiFillEdit } from "react-icons/ai";
 import { IoQrCode } from "react-icons/io5";
-import { Painel, Table, Title } from "../../src/components";
+import { Painel, Table, Title} from "../../src/components";
 import { Icon, Item, TitleH1} from "../../src/types/types";
 
 const items:Item[] = [
@@ -38,13 +38,20 @@ const icons:Icon[] = [
         url: "/editar"
     }
 ]
+const TitleH1:TitleH1 = {
+    color: "#fff",
+    font: "Poppins",
+    margin: 0,
+    padding: 0
+}
 
 export default function Pacientes(){
     return(
         <div>
-            <Title padding={20}>
+            <Title TitleH1={TitleH1}>
                 Pacientes
             </Title>
+        
             <Painel>
                 <Table items = {items} icons = {icons}/>
             </Painel>

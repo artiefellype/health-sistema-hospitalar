@@ -42,3 +42,13 @@ export interface Input{
     background?: string;
     placeholderColor?: string;
 }
+
+// Menu items
+export interface MenuItems {
+    id?: string;
+    name: string;
+    icon: IconType;
+    url: string;
+}
+
+

@@ -33,14 +33,35 @@ export interface Input{
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     padding?: number;
     margin?: number;
-    width?: number;
-    height?: number;
+    width?: string;
+    height?: string;
     border?: string;
     borderRadius?: number;
     fontSize?: number;
     color?: string;
+    colorBorder?: string;
     background?: string;
     placeholderColor?: string;
+    paddingBottom?: number;
+    paddingTop?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
+    marginTop?: number;
+    marginBottom?: number;
+    marginLeft?: number;
+    marginRight?: number;
+}
+
+// Painel
+export interface Painel{
+    margin?: string;
+    padding?: string;
+    width?: string;
+    height?: string;
+    background?: string;
+    borderRadius?: number;
+    boxShadow?: string;
+    
 }
 
 // Menu items
@@ -50,5 +71,4 @@ export interface MenuItems {
     icon: IconType;
     url: string;
 }
-
 

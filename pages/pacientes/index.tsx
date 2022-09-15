@@ -1,7 +1,8 @@
 import { AiFillEdit } from "react-icons/ai";
 import { IoQrCode } from "react-icons/io5";
-import { Painel, Table, Title} from "../../src/components";
+import { Input, Painel, Table, Title} from "../../src/components";
 import { Icon, Item, TitleH1} from "../../src/types/types";
+import {BsSearch} from "react-icons/bs"
 
 const items:Item[] = [
     {
@@ -51,7 +52,9 @@ export default function Pacientes(){
             <Title TitleH1={TitleH1}>
                 Pacientes
             </Title>
-        
+            <Input color={"gray"} borderRadius={15} placeholder={'Pesquisa'} type={'text'} height={"30px"}>
+                <BsSearch/>
+            </Input>
             <Painel>
                 <Table items = {items} icons = {icons}/>
             </Painel>

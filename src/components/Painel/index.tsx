@@ -2,7 +2,7 @@ import { MainPainel } from "./styles";
 
 function Painel({children, ...props}: any){
     return (
-        <MainPainel>
+        <MainPainel {...props} >
             {children}
         </MainPainel>
     );

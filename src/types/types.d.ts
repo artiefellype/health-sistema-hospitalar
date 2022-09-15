@@ -41,6 +41,7 @@ export interface Input{
     color?: string;
     colorBorder?: string;
     background?: string;
+    placeholderColor?: string;
     paddingBottom?: number;
     paddingTop?: number;
     paddingLeft?: number;
@@ -62,3 +63,12 @@ export interface Painel{
     boxShadow?: string;
     
 }
+
+// Menu items
+export interface MenuItems {
+    id?: string;
+    name: string;
+    icon: IconType;
+    url: string;
+}
+

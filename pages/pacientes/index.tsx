@@ -2,7 +2,6 @@ import { AiFillEdit } from "react-icons/ai";
 import { IoQrCode } from "react-icons/io5";
 import { Input, Painel, Table, Title} from "../../src/components";
 import { Icon, Item, TitleH1} from "../../src/types/types";
-import {BsSearch} from "react-icons/bs"
 
 const items:Item[] = [
     {
@@ -30,13 +29,13 @@ const icons:Icon[] = [
         id: "1",
         label: "QRCode",
         icon: IoQrCode,
-        url: "/qrcode"
+        url: "/"
     },
     {
         id: "2",
         label: "Editar",
         icon: AiFillEdit,
-        url: "/editar"
+        url: "/"
     }
 ]
 const TitleH1:TitleH1 = {
@@ -52,9 +51,7 @@ export default function Pacientes(){
             <Title TitleH1={TitleH1}>
                 Pacientes
             </Title>
-            <Input color={"gray"} borderRadius={15} placeholder={'Pesquisa'} type={'text'} height={"30px"}>
-                <BsSearch/>
-            </Input>
+            <Input color={"gray"} borderRadius={15} placeholder={'Pesquisa'} type={'text'} height={"30px"}/>
             <Painel>
                 <Table items = {items} icons = {icons}/>
             </Painel>

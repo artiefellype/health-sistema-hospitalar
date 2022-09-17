@@ -25,12 +25,6 @@ export interface TitleH1{
 
 // Input
 export interface Input{
-    id?: string;
-    type?: string;
-    placeholder?: string;
-    value?: string;
-    name?: string;
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     padding?: number;
     margin?: number;
     width?: string;
@@ -72,3 +66,24 @@ export interface MenuItems {
     url: string;
 }
 
+// Button
+export interface Button{
+    padding?: number;
+    margin?: number;
+    width?: string;
+    height?: string;
+    border?: string;
+    borderRadius?: number;
+    fontSize?: number;
+    color?: string;
+    colorBorder?: string;
+    background?: string;
+    paddingBottom?: number;
+    paddingTop?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
+    marginTop?: number;
+    marginBottom?: number;
+    marginLeft?: number;
+    marginRight?: number;
+}

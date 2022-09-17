@@ -1,4 +1,4 @@
-import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR,STDIcon,STHIcon } from "./styles";
+import { STable, STBody, STBodyTR, STD, STH, STHead, STHeadTR,STDIcon,STHIcon, SA } from "./styles";
 import Link from "next/link";
 import { Item, Icon} from '../../types/types';
 interface props {
@@ -29,7 +29,9 @@ function Table({items, icons}:props){
                         {icons?.map((icon) => (
                             <STDIcon key={icon.id}>
                                 <Link href= {icon.url} >
-                                    <icon.icon/>
+                                    <SA>
+                                        <icon.icon/>
+                                    </SA>
                                 </Link>
                             </STDIcon>
                         ))}

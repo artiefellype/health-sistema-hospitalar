@@ -3,7 +3,7 @@ import { Input, Painel, Title } from "../../src/components";
 export default function CadastrarPacientes(){
     return(
         <div>
-            <Title>
+            <Title color={"white"}>
                 Cadastrar Pacientes
             </Title>
             <Painel>

@@ -73,3 +73,6 @@ export const STHIcon = styled.th`
         white-space: nowrap;
     }
 `;
+export const SA= styled.a`
+    color: ${vars.text};
+`;

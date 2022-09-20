@@ -38,20 +38,14 @@ const icons:Icon[] = [
         url: "/"
     }
 ]
-const TitleH1:TitleH1 = {
-    color: "#fff",
-    font: "Poppins",
-    margin: 0,
-    padding: 0
-}
 
 export default function Pacientes(){
     return(
         <div>
-            <Title TitleH1={TitleH1}>
+            <Title color= {"#fff"}>
                 Pacientes
             </Title>
-            <Input color={"gray"} borderRadius={15} placeholder={'Pesquisa'} type={'text'} height={"30px"}/>
+            <Input color={"gray"} borderRadius={15} placeholder={'Pesquisa'} type={'text'} height={"30px"} width={"200px"} margin={15}/>
             <Painel>
                 <Table items = {items} icons = {icons}/>
             </Painel>

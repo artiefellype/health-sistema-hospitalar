@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { TitleH1 } from '../../types/types'; 
 
 export const H1 = styled("h1")<TitleH1>`
-    font-size: 2.0em;
+    font-size: ${(TitleH1) => TitleH1.fontSize || 30}px;
     font-weight: 700;
     color: ${(TitleH1) => TitleH1.color || 'black'};
     font-family: ${(TitleH1) => TitleH1.font || 'Poppins, sans-serif'};

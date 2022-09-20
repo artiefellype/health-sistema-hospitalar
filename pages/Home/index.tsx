@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "antd/dist/antd.css";
 import NavItems from "../../src/components/NavItems/NavItems";
 
-import { BiLeftIndent, BiListUl, BiClinic } from "react-icons/bi";
+import { BiLeftIndent, BiListUl} from "react-icons/bi";
 import { H1 } from "../../src/components/Title/styles";
 
 const { Header, Footer, Sider } = Layout;
@@ -24,7 +24,7 @@ const Dashboard = ({ children }: props) => {
     setCollapsed(!collapsed);
   };
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ height: "100%" }}>
       <Sider
         breakpoint="lg"
         collapsed={collapsed}
@@ -60,9 +60,6 @@ const Dashboard = ({ children }: props) => {
           style={{ padding: 0 }}
         />
         {children}
-        <Footer style={{ textAlign: "center", background: "#064663" }}>
-          Health hospital management system ©2022 Created by ES team
-        </Footer>
       </Layout>
     </Layout>
   );

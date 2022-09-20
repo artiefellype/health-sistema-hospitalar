@@ -21,6 +21,7 @@ export interface TitleH1{
     font?: string;
     margin?: number;
     padding?: number;
+    fontSize?: number;
 }
 
 // Input
@@ -30,6 +31,7 @@ export interface Input{
     width?: string;
     height?: string;
     border?: string;
+    borderBottom?: string;
     borderRadius?: number;
     fontSize?: number;
     color?: string;
@@ -44,6 +46,7 @@ export interface Input{
     marginBottom?: number;
     marginLeft?: number;
     marginRight?: number;
+    filter?: string;
 }
 
 // Painel
@@ -86,4 +89,55 @@ export interface Button{
     marginBottom?: number;
     marginLeft?: number;
     marginRight?: number;
+    fontFamily?: string;
+}
+
+// Label
+export interface Label{
+    padding?: number;
+    margin?: number;
+    width?: string;
+    height?: string;
+    border?: string;
+    borderRadius?: number;
+    fontSize?: number;
+    color?: string;
+    colorBorder?: string;
+    background?: string;
+    paddingBottom?: number;
+    paddingTop?: number;
+    paddingLeft?: number;
+    paddingRight?: number;
+    marginTop?: number;
+    marginBottom?: number;
+    marginLeft?: number;
+    marginRight?: number;
+}
+
+// Form
+export interface Form{
+    width?: string;
+    maxWidth?: string;
+    padding?: string;
+    backgroundColor?: string;
+    borderRadius?: number;
+    boxShadow?: string;
+    boxSizing?: string;
+    margin?: number;
+}    
+
+// Textarea
+export interface Textarea{
+    width?: string;
+    height?: string;
+    border?: string;
+    borderRadius?: number;
+    padding?: string;
+    margin?: string;
+    resize?: string;
+    fontSize?: number;
+    fontFamily?: string;
+    color?: string;
+    outline?: string;
+    background?: string;
 }

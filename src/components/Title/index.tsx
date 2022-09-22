@@ -1,8 +1,8 @@
-import {H1} from './styles';
+import {SH} from './styles';
 export default function Title({children, ...props}: any){
     return(
-        <H1 {...props} >
+        <SH {...props} >
             {children}
-        </H1>
+        </SH>
     )
 }

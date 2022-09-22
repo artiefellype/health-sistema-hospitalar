@@ -7,4 +7,6 @@ import Form from './Form';
 import Fieldset from './Fieldset';
 import Textarea from './Textarea';
 import Button from './Button';
-export {Title, Table, Painel, Input, Label, Form, Fieldset, Textarea, Button};
+import Box from './Box';
+import Dropdown from './Dropdown';
+export {Title, Table, Painel, Input, Label, Form, Fieldset, Textarea, Button, Box, Dropdown};

@@ -9,6 +9,7 @@ export default function CadastrarPacientes(){
         "Dermatite alérgica",
         "Alergia Alimentar",
         "Alergia a Insetos",
+
         "Alergia a Pelos de Animais",
     ]
     return(

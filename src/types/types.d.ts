@@ -141,3 +141,23 @@ export interface Textarea{
     outline?: string;
     background?: string;
 }
+
+// Box
+export interface Box{
+    width?: string;
+    height?: string;
+    display?: string;
+    flexDirection?: string;
+    justifyContent?: string;
+    alignItems?: string;
+    padding?: string;
+    margin?: string;
+    background?: string;
+    backgroundColor?: string;
+    borderRadius?: number;
+    position?: string;
+    top?: string;
+    left?: string;
+    right?: string;
+    bottom?: string;
+}

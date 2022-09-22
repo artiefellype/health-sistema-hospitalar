@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import NavItems from "../../src/components/NavItems/NavItems";
 
 import { BiLeftIndent, BiListUl} from "react-icons/bi";
-import { H1 } from "../../src/components/Title/styles";
+import {Title} from "../../src/components/";
 
 const { Header, Footer, Sider } = Layout;
 
@@ -42,7 +42,7 @@ const Dashboard = ({ children }: props) => {
           {collapsed ? <BiLeftIndent /> : <BiListUl />}
         </Button>
         {/*<BiClinic size={40} style={logoIcon} /> */}
-        { !collapsed ? <H1 color="white" style={{marginRight: "4rem"}}> HEALTH</H1> : null}
+        { !collapsed ? <Title color="white" style={{marginRight: "4rem"}}> HEALTH</Title> : null}
 
         </div>
         

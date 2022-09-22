@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { TitleH1 } from '../../types/types'; 
 
-export const H1 = styled("h1")<TitleH1>`
+export const SH = styled.h1<TitleH1>`
     font-size: ${(TitleH1) => TitleH1.fontSize || 30}px;
     font-weight: 700;
     color: ${(TitleH1) => TitleH1.color || 'black'};

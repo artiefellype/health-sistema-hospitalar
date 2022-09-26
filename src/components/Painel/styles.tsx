@@ -2,9 +2,6 @@ import vars from "../variables";
 import { Painel } from '../../types/types'; 
 import styled from "styled-components";
 export const MainPainel = styled.div<Painel>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: ${(Painel) => Painel.width || `98%`};
     padding: ${(Painel) => Painel.padding || vars.smSpacing}px;
     background: ${(Painel) =>Painel.background || vars.white};

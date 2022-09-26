@@ -6,7 +6,7 @@ export const SForm = styled.form<Form>`
     align-items: center;
     width: ${(Form) => Form.width || `98%`};
     padding: ${(Form) => Form.padding || 15}px;
-    background-color: ${(Form) => Form.backgroundColor || `white`};
+    background-color: ${(Form) => Form.backgroundColor || `#064663`};
     border-radius: ${(Form) => Form.borderRadius || 10}px;
     margin: ${(Form) => Form.margin || 10}px;
     `

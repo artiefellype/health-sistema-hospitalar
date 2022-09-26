@@ -9,4 +9,7 @@ import Textarea from './Textarea';
 import Button from './Button';
 import Box from './Box';
 import Dropdown from './Dropdown';
-export {Title, Table, Painel, Input, Label, Form, Fieldset, Textarea, Button, Box, Dropdown};
+import TableAnt from './TableAnt';
+import FormAnt from './FormAnt';
+import DescriptionAnt from './DescriptionAnt';
+export {Title, Table, Painel, Input, Label, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt};

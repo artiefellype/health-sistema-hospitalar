@@ -1,6 +1,8 @@
-import { Box, Dropdown, Painel, Title } from "../../src/components";
+import { Box, DescriptionAnt, Dropdown, Painel, Title } from "../../src/components";
 import {IoMdArrowDropdown} from "react-icons/io";
 import { useState } from "react";
+import { Button } from "antd";
+import Link from "next/link";
 export default function Paciente(){
     const [open, setOpen] = useState(true);
     const Prioridade = [
@@ -22,21 +24,34 @@ export default function Paciente(){
     ]
     return(
         <div>
-            <Title color= {"#fff"}>
+            <Title color= {"#064663"}>
                 Paciente
             </Title>
-            <Painel>
-                <Box>
-                    <h1>Data de Admissão: 01/01/2021</h1>
-                    <Box>
-                        <h1>Dias Internado: 16 dias</h1>
-                        <Dropdown OnClick={() => setOpen(!open)} open={open} icon={IoMdArrowDropdown} valor={Prioridade}>
-                            <p>Prioridade</p>
-                        </Dropdown>
-                    </Box>
-                </Box>
-
+            <Painel padding = {20} background={"#064663"} color={"#fff"}>
+               <DescriptionAnt/>
             </Painel>
+            <Box justifyContent={"space-evenly"}>
+                <Button
+                    type="primary"
+                    style={{
+                        background: "#064663",
+                        border: "none",
+                        borderRadius: 5,
+                        color: "#fff",
+                    }}
+                >
+                    <Link href="/Medicacao">
+                        Medicação
+                    </Link>
+                </Button>
+                <Button
+                    type="primary"
+                >
+                    <Link href="/Exames">
+                        Exames
+                    </Link>
+                </Button>
+            </Box>
         </div>
     )
 }

@@ -13,7 +13,7 @@ export const SButton = styled.button<Button>`
     font-size: ${(Button) => Button.fontSize || 15}px;
     font-family: ${(Button) => Button.fontFamily};
     color: ${(Button) => Button.color || "#333"};
-    background: ${(Button) => Button.background || "#064663"};
+    background: ${(Button) => Button.background || "#001529"};
     &:focus {
         outline: none;
     }

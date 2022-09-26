@@ -6,8 +6,8 @@ export const SBox = styled.div<Box>`
     height: ${(Box) => Box.height};
     background-color: ${(Box) => Box.backgroundColor};
     border-radius: ${(Box) => Box.borderRadius || 10}px;
-    margin: ${(Box) => Box.margin || 10}px;
-    padding: ${(Box) => Box.padding || 10}px;
+    margin: ${(Box) => Box.margin}px;
+    padding: ${(Box) => Box.padding}px;
     display: flex;
     flex-direction: ${(Box) => Box.flexDirection || `row`};
     justify-content: ${(Box) => Box.justifyContent || `space-between`};

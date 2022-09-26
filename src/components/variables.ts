@@ -6,6 +6,7 @@ const vars = {
     bg3: "rgb(214, 214, 214)",
     text: "rgb(33, 33, 33)",
     primary: "rgb(224, 132, 209)",
+    teste: "#141414",
 
     borderRadius: 8,
 

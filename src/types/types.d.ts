@@ -112,6 +112,7 @@ export interface Label{
     marginBottom?: number;
     marginLeft?: number;
     marginRight?: number;
+    justifyContent?: string; 
 }
 
 // Form

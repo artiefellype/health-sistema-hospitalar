@@ -40,14 +40,20 @@ export default function Paciente(){
                         color: "#fff",
                     }}
                 >
-                    <Link href="/Medicacao">
+                    <Link href="paciente/Medicamento">
                         Medicação
                     </Link>
                 </Button>
                 <Button
                     type="primary"
+                    style={{
+                        background: "#064663",
+                        border: "none",
+                        borderRadius: 5,
+                        color: "#fff",
+                    }}
                 >
-                    <Link href="/Exames">
+                    <Link href="paciente/Exame">
                         Exames
                     </Link>
                 </Button>

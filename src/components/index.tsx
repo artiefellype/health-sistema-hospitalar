@@ -12,4 +12,5 @@ import Dropdown from './Dropdown';
 import TableAnt from './TableAnt';
 import FormAnt from './FormAnt';
 import DescriptionAnt from './DescriptionAnt';
-export {Title, Table, Painel, Input, Label, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt};
+import ExameAnt from './ExameAnt';
+export {Title, Table, Painel, Input, Label, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt, ExameAnt};

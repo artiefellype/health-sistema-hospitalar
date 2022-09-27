@@ -1,7 +1,7 @@
 import { Layout, Menu, Button } from "antd";
 import React, { useState } from "react";
 import "antd/dist/antd.css";
-import NavItems from "../../src/components/NavItems/NavItems";
+import { NavItems } from "../../src/components";
 import { BiLeftIndent, BiListUl } from "react-icons/bi";
 import { Title } from "../../src/components/";
 import { Content } from "antd/lib/layout/layout";

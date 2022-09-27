@@ -13,4 +13,6 @@ import TableAnt from './TableAnt';
 import FormAnt from './FormAnt';
 import DescriptionAnt from './DescriptionAnt';
 import ExameAnt from './ExameAnt';
-export {Title, Table, Painel, Input, Label, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt, ExameAnt};
+import NavItems from './NavItems';
+import Chart from './Chart';
+export {Title, Table, Painel, Input, NavItems, Chart, Label, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt, ExameAnt};

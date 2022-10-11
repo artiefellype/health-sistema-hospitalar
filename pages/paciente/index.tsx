@@ -4,24 +4,6 @@ import { useState } from "react";
 import { Button } from "antd";
 import Link from "next/link";
 export default function Paciente(){
-    const [open, setOpen] = useState(true);
-    const Prioridade = [
-        {
-            id: "1",
-            label: "Baixa",
-            value: "Baixa"
-        },
-        {
-            id: "2",
-            label: "Média",
-            value: "Média"
-        },
-        {
-            id: "3",
-            label: "Alta",
-            value: "Alta"
-        },
-    ]
     return(
         <div>
             <Title color= {"#064663"}>

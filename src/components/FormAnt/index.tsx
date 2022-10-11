@@ -89,5 +89,5 @@ const FormAnt = () => {
         </>
     );
 };
-
-export default () => <FormAnt />;
+FormAnt.displayName = 'FormAnt';
+export default FormAnt;

@@ -2,11 +2,12 @@
 import { Table } from 'antd';
 import { IconType }from 'react-icons'
 import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Title from '../Title';
 import { IoQrCode } from 'react-icons/io5';
 import { AiFillEdit } from 'react-icons/ai';
 import Link from 'next/link';
+import QRCode from 'qrcode';
 
 interface DataType {
     key: React.Key;
@@ -17,50 +18,6 @@ interface DataType {
     Acoes: string;
 }
 
-const columns: ColumnsType<DataType> = [
-    {
-        title: 'Id',
-        dataIndex: 'Id',
-    },
-    {
-        title: 'Nome',
-        dataIndex: 'Nome',
-    },
-    {
-        title: 'Data de Entrada',
-        dataIndex: 'DataEntrada',
-    },
-    {
-        title: 'Status',
-        dataIndex: 'Status',
-    },
-    {
-        title: 'Ações',
-        dataIndex: 'Acoes',
-        render: () => (
-            <>
-                <Link href={"/paciente/"}>
-                    <a style={
-                        {
-                            color: '#000',
-                            fontSize: '1rem',
-                            paddingLeft: '0.5rem'
-                        }
-                    }><IoQrCode/></a>
-                </Link>
-                <Link href="/cadastrarPacientes">
-                <a style={
-                        {
-                            color: '#000',
-                            fontSize: '1rem',
-                            paddingLeft: '0.5rem'
-                        }
-                    }><AiFillEdit/></a>
-                </Link>  
-            </>
-        ),
-    },
-];
 
 const data: DataType[] = [
     {
@@ -88,8 +45,94 @@ const data: DataType[] = [
         Acoes: '',
     },
 ];
-const App: React.FC = () => (
+
+
+export default function App() {
+    const [open, setOpen] = useState(false);
+    const columns: ColumnsType<DataType> = [
+        {
+            title: 'Id',
+            dataIndex: 'Id',
+        },
+        {
+            title: 'Nome',
+            dataIndex: 'Nome',
+        },
+        {
+            title: 'Data de Entrada',
+            dataIndex: 'DataEntrada',
+        },
+        {
+            title: 'Status',
+            dataIndex: 'Status',
+        },
+        {
+            title: 'Ações',
+            dataIndex: 'Acoes',
+            render: () => (
+                <>
+                    <button style={
+                            {
+                                color: '#000',
+                                fontSize: '1rem',
+                                paddingLeft: '0.5rem'
+                            }
+                        }
+                        onClick={() => 
+                            setOpen(!open)}
+                            onBlur={()=>setOpen(false)}
+                            >
+                        <IoQrCode size={20} />
+                    </button>
+                    <Link href="/cadastrarPacientes">
+                    <a style={
+                            {
+                                color: '#000',
+                                fontSize: '1rem',
+                                paddingLeft: '0.5rem'
+                            }
+                        }><AiFillEdit/></a>
+                    </Link>  
+                </>
+            ),
+        },
+    ];
+const [src,setSrc] = useState('');
+    useEffect(() => {
+        QRCode.toDataURL('https://health-sistema-hospitalar-vczy.vercel.app/paciente').then((url:any) => {
+            setSrc(url);
+        })
+    }, []);   
+    return(
+    
     <div>
+        <div
+            style={{
+                display: open ? 'flex' : 'none',
+                justifyContent: 'center',
+                alignItems: 'center',
+                flexDirection: 'column',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'rgba(0,0,0,0.5)',   
+                zIndex: 9999,  
+                            
+            }}
+            >
+            <img src={src} alt="QRCode"
+                style={
+                    {
+                        width: '350px',
+                        height: '350px',
+                        background: '#fff',                                               
+                    }
+                }
+                
+            />
+        </div>
         <Title>
             Pacientes
         </Title>
@@ -97,5 +140,5 @@ const App: React.FC = () => (
             
         />
     </div>
-);
-export default App;
+
+    )};

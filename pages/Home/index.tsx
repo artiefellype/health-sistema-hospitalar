@@ -52,7 +52,6 @@ const Dashboard = ({ children }: props) => {
                 <Menu
                     theme="dark"
                     mode="inline"
-                    inlineCollapsed={collapsed}
                     defaultSelectedKeys={["4"]}
                     items={NavItems}
                 />

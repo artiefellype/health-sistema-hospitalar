@@ -8,47 +8,63 @@ import { IoQrCode } from 'react-icons/io5';
 import { AiFillEdit } from 'react-icons/ai';
 import Link from 'next/link';
 import QRCode from 'qrcode';
+import Image from 'next/image';
 
 interface DataType {
     key: React.Key;
     Id: string;
-    Nome: string;
-    DataEntrada: string;
+    Nome?: string;
+    DataEntrada:string;
     Status: string;
     Acoes: string;
 }
 
+interface Person {
+    name:{
+        first: string;
+        last: string;
+    }
+    email: string;
+    picture: {
+        thumbnail: string;
+    }
+    nationality: string;
+    registered: {
+        date: string;
+    }
+}
 
-const data: DataType[] = [
-    {
-        key: '1',
-        Id: '1',
-        Nome: 'João',
-        DataEntrada: '01/01/2021',
-        Status: 'Ativo',
-        Acoes: '',
-    },
-    {
-        key: '2',
-        Id: '2',
-        Nome: 'Maria',
-        DataEntrada: '01/01/2021',
-        Status: 'Ativo',
-        Acoes: '',
-    },
-    {
-        key: '3',
-        Id: '3',
-        Nome: 'José',
-        DataEntrada: '01/01/2021',
-        Status: 'Ativo',
-        Acoes: '',
-    },
-];
+const count = 7;
+const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,email,nat,registered,picture&noinfo`;
 
 
 export default function App() {
+    const [list, setList] = useState<Person[]>([]);
+    useEffect(() => {
+        fetch(fakeDataUrl)
+          .then(res => res.json())
+          .then(res => {
+            setList(res.results);
+            console.log(res.results);
+          });
+      }, []);
     const [open, setOpen] = useState(false);
+    
+    const data: DataType[] = [
+        
+
+    ];
+    list.map((item, index) => {
+        data.push({
+            key: index,
+            Id: index +1+"",
+            Nome: item.name.first + " " + item.name.last,
+            DataEntrada: item.registered.date,
+            Status: "Ativo",
+            Acoes: "Ações"
+        });
+    });
+    
     const columns: ColumnsType<DataType> = [
         {
             title: 'Id',
@@ -71,18 +87,20 @@ export default function App() {
             dataIndex: 'Acoes',
             render: () => (
                 <>
-                    <button style={
-                            {
-                                color: '#000',
-                                fontSize: '1rem',
-                                paddingLeft: '0.5rem'
-                            }
-                        }
+                    <button 
+                        style={{
+                            border: 'none', 
+                            backgroundColor: 'transparent', 
+                            cursor: 'pointer',
+                            marginRight: '10px',
+                            
+
+                    }}
                         onClick={() => 
                             setOpen(!open)}
                             onBlur={()=>setOpen(false)}
                             >
-                        <IoQrCode size={20} />
+                        <IoQrCode/>
                     </button>
                     <Link href="/cadastrarPacientes">
                     <a style={
@@ -122,16 +140,8 @@ const [src,setSrc] = useState('');
                             
             }}
             >
-            <img src={src} alt="QRCode"
-                style={
-                    {
-                        width: '350px',
-                        height: '350px',
-                        background: '#fff',                                               
-                    }
-                }
-                
-            />
+            <Image src={src} alt="QRCode" width={200} height={200} />                
+            
         </div>
         <Title>
             Pacientes

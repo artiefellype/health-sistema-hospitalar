@@ -1,4 +1,4 @@
-import { Fieldset, Form, Input, Label, Painel, Textarea, Title, Button, Box, FormAnt } from "../../src/components";
+import {Label, Painel, Title, Box, FormAnt } from "../../src/components";
 import { SCelula } from "../../src/components/Label/styles";
 
 export default function CadastrarPacientes(){

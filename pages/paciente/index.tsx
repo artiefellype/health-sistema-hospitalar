@@ -1,4 +1,4 @@
-import { Box, DescriptionAnt, Dropdown, ExameAnt, MedicamentosAnt, Painel, Title } from "../../src/components";
+import { Box, DescriptionAnt, ExameAnt, MedicamentosAnt, Painel, Title } from "../../src/components";
 import {IoMdArrowDropdown} from "react-icons/io";
 import { useState } from "react";
 import { Button } from "antd";

@@ -3,7 +3,7 @@ import Title from "../Title";
 import { MdOutlineMedication } from "react-icons/md";
 import Label from "../Label";
 import Box from "../Box";
-import Button from "../Button";
+import Button from "../Button"
 import { Container, LoginCard, LogoContainer } from "./styles";
 import { Input } from "antd";
 

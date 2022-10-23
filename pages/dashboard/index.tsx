@@ -7,7 +7,12 @@ export default function Dashboard() {
   return (
     <>
       <Box>
-        <Painel>
+        <Painel
+          minHeight={190}
+          flexDirection={"column"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
           <Title> Prontuarios emitidos</Title>
           <Painel background={vars.text}>
             <Label
@@ -20,7 +25,12 @@ export default function Dashboard() {
           </Painel>
         </Painel>
 
-        <Painel>
+        <Painel
+          minHeight={190}
+          flexDirection={"column"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
           <Title> Pacientes internados</Title>
           <Painel background={vars.text}>
             <Label
@@ -33,7 +43,12 @@ export default function Dashboard() {
           </Painel>
         </Painel>
 
-        <Painel>
+        <Painel
+          minHeight={190}
+          flexDirection={"column"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
           <Title> Leitos disponiveis</Title>
           <Painel background={vars.text}>
             <Label
@@ -46,7 +61,11 @@ export default function Dashboard() {
           </Painel>
         </Painel>
       </Box>
-      <Painel>
+      <Painel
+        flexDirection={"column"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
         <Chart />
       </Painel>
     </>

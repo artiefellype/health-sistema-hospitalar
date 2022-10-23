@@ -8,7 +8,7 @@ import { IoQrCode } from 'react-icons/io5';
 import { AiFillEdit } from 'react-icons/ai';
 import Link from 'next/link';
 import QRCode from 'qrcode';
-import axios from 'axios'
+import axios from 'axios';
 import Image from 'next/image';
 
 interface DataType {

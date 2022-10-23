@@ -1,14 +1,9 @@
 import Title from './Title';
-import Table from './Table';
+
 import Painel from './Painel';
-import Input from './Input';
 import Label from './Label';
-import Form from './Form';
-import Fieldset from './Fieldset';
-import Textarea from './Textarea';
-import Button from './Button';
+
 import Box from './Box';
-import Dropdown from './Dropdown';
 import TableAnt from './TableAnt';
 import FormAnt from './FormAnt';
 import DescriptionAnt from './DescriptionAnt';
@@ -16,4 +11,4 @@ import ExameAnt from './ExameAnt';
 import NavItems from './NavItems';
 import Chart from './Chart';
 import MedicamentosAnt from './MedicamentosAnt';
-export {Title, Table, Painel, Input, NavItems, Chart, Label, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt, ExameAnt,MedicamentosAnt};
+export {Title, Painel, NavItems, Chart, Label, Box, TableAnt, FormAnt, DescriptionAnt, ExameAnt,MedicamentosAnt};

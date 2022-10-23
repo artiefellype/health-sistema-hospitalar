@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { IconType } from "react-icons/lib";
 
 // Table
@@ -22,6 +23,9 @@ export interface TitleH1{
     margin?: number;
     padding?: number;
     fontSize?: number;
+    fontStyle?: string;
+    fontWeight?: number;
+    paddingBottom?: number;
 }
 
 // Input
@@ -58,6 +62,11 @@ export interface Painel{
     background?: string;
     borderRadius?: number;
     boxShadow?: string;
+    minHeight?: string;
+    justifyContent: string;
+    alignItems: string;
+    display: string;
+    flexDirection: string;
     
 }
 
@@ -101,6 +110,7 @@ export interface Label{
     border?: string;
     borderRadius?: number;
     fontSize?: number;
+    fontWeight?: number;
     color?: string;
     colorBorder?: string;
     background?: string;
@@ -113,6 +123,11 @@ export interface Label{
     marginLeft?: number;
     marginRight?: number;
     justifyContent?: string; 
+}
+
+// Login Components
+export interface Login{
+    imgUrl?: string;
 }
 
 // Form
@@ -152,6 +167,7 @@ export interface Box{
     justifyContent?: string;
     alignItems?: string;
     padding?: string;
+    paddingTop?: number;
     margin?: string;
     background?: string;
     backgroundColor?: string;

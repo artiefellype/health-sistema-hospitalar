@@ -3,6 +3,8 @@ import Table from './Table';
 import Painel from './Painel';
 import Input from './Input';
 import Label from './Label';
+import LoginPage from './LoginPage'
+import RegistrationPage from './RegistrationPage';
 import Form from './Form';
 import Fieldset from './Fieldset';
 import Textarea from './Textarea';
@@ -16,4 +18,4 @@ import ExameAnt from './ExameAnt';
 import NavItems from './NavItems';
 import Chart from './Chart';
 import MedicamentosAnt from './MedicamentosAnt';
-export {Title, Table, Painel, Input, NavItems, Chart, Label, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt, ExameAnt,MedicamentosAnt};
+export {Title, Table, Painel, Input, NavItems, Chart, Label, LoginPage, Form, Fieldset, Textarea, Button, Box, Dropdown, TableAnt, FormAnt, DescriptionAnt, ExameAnt,MedicamentosAnt, RegistrationPage};

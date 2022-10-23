@@ -5,6 +5,8 @@ import { useState } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLogged, setIsLogged] = useState(false);
+  //setIsLogged(true)
+
 
   return (
     <>

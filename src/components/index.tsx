@@ -1,15 +1,18 @@
-import Title from './Title';
+import Title from './globals/Title';
 import RegistrationPage from './RegistrationPage';
-import Painel from './Painel';
-import Label from './Label';
-import Box from './Box';
-import TableAnt from './TableAnt';
-import FormAnt from './FormAnt';
+import Button from './globals/Button'
+import Painel from './globals/Painel';
+import Label from './globals/Label';
+import Box from './globals/Box';
+import Span from './globals/Span';
+import TableAnt from './Pacientes';
+import PatientRegistrationPage from './PatientRegistrationPage';
 import DescriptionAnt from './DescriptionAnt';
 import ExameAnt from './ExameAnt';
-import NavItems from './NavItems';
-import Chart from './Chart';
+import NavItems from './globals/NavItems';
+import Input from './globals/Input';
+import Chart from './globals/Chart';
 import MedicamentosAnt from './MedicamentosAnt';
 import LoginPage from './LoginPage';
-export {Title, Painel, NavItems, Chart, Label, Box, TableAnt, FormAnt, DescriptionAnt, ExameAnt,LoginPage,MedicamentosAnt,RegistrationPage};
+export {Title, Button, Painel, NavItems, Input, Span, Chart, Label, Box, TableAnt, PatientRegistrationPage, DescriptionAnt, ExameAnt,LoginPage,MedicamentosAnt,RegistrationPage};
 

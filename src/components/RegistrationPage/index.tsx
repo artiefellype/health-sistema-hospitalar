@@ -1,32 +1,46 @@
-import React from "react";
-import Title from "../Title";
+import React, { useState } from "react";
+import {Title, Box, Button} from "..";
 import { MdOutlineMedication } from "react-icons/md";
-import Label from "../Label";
-import Box from "../Box";
-import { Container, LoginCard, LogoContainer } from "./styles";
-import { Input, Button, Form, InputNumber } from "antd";
+import {
+  Container,
+  LoginCard,
+  LogoContainer,
+  LoginForm,
+  LoginInput,
+  LoginInputBox,
+  LoginSpan,
+  LoginButton
+} from "./styles";
+import { useForm } from "react-hook-form";
+import { api } from "../../../pages/api/api";
+import Router from 'next/router';
 
-const layout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 16 },
-};
-/* eslint-disable no-template-curly-in-string */
-const validateMessages = {
-  required: " is required!",
-  types: {
-    email: "${label} is not a valid email!",
-    number: "${label} is not a valid number!",
-  },
-  number: {
-    range: "${label} must be between ${min} and ${max}",
-  },
-};
-/* eslint-enable no-template-curly-in-string */
+interface FormValuesT {
+  name: string;
+  email: string;
+  password: string;
+  cpf: string;
+  role: string;
+}
 
-export default function index() {
-  const onFinish = (values: any) => {
-    console.log(values.user);
-  };
+export default function RegistrationPage() {
+  const [dataa, setData] = useState<FormValuesT[]>([]);
+  const { register, handleSubmit } = useForm<FormValuesT>();
+  // Para mensages de erro do backend melhor usar essa funcao pra tratar
+  async function handleSignIn(data: FormValuesT) {
+    //console.log("@>>", data);
+    api
+      .post("/user", data)
+      .then((response) => console.log("OK"))
+      .catch((error) => console.log("@>>>>", error));
+
+    Router.push('/')
+
+  }
+
+  function goToLogin(){
+    Router.push('/')
+  }
 
   return (
     <Container imgUrl="/img/loginImageSc.png">
@@ -64,48 +78,85 @@ export default function index() {
             </Title>
           </Box>
           <Box
-          margin={0}
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
+            margin={0}
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
           >
-            <Form
-              {...layout}
-              name="nest-messages"
-              onFinish={onFinish}
-              validateMessages={validateMessages}
-            >
-              <Form.Item
-              
-                name={["user", "name"]}
-                label="Name"
-                rules={[{ required: true }]}
+            <LoginForm onSubmit={handleSubmit(handleSignIn)}>
+              <Box
+                width="75%"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="flex-start"
+                paddingTop={45}
               >
-                <Input />
-              </Form.Item>
-              <Form.Item
-              style={{color:"red"}}
-                name={["user", "email"]}
-                label="Email"
-                rules={[{ type: "email" }]}
+                <LoginInputBox>
+                  <LoginInput
+                    {...register("name")}
+                    defaultValue=""
+                    name="name"
+                    type="name"
+                    required
+                  />
+                  <LoginSpan> Nome </LoginSpan>
+                </LoginInputBox>
+                <LoginInputBox>
+                  <LoginInput
+                    {...register("email")}
+                    name="email"
+                    type="email"
+                    required
+                  />
+                  <LoginSpan> Email </LoginSpan>
+                </LoginInputBox>
+                <LoginInputBox>
+                  <LoginInput
+                    {...register("password")}
+                    name="password"
+                    type="password"
+                    required
+                  />
+                  <LoginSpan> Senha </LoginSpan>
+                </LoginInputBox>
+                <LoginInputBox>
+                  <LoginInput
+                    {...register("cpf")}
+                    name="cpf"
+                    type="cpf"
+                    required
+                  />
+                  <LoginSpan> CPF </LoginSpan>
+                </LoginInputBox>
+                <LoginInputBox>
+                  <LoginInput
+                    {...register("role")}
+                    name="role"
+                    type="role"
+                    required
+                  />
+                  <LoginSpan> Cargo </LoginSpan>
+                </LoginInputBox>
+              </Box>
+              <Box
+                width="100%"
+                margin={0}
+                flexDirection="column"
+                alignItems="center"
+                paddingTop={45}
               >
-                <Input />
-              </Form.Item>
-              <Form.Item name={["user", "password"]} label="Password">
-                <Input />
-              </Form.Item>
-              <Form.Item name={["user", "cpf"]} label="CPF">
-                <Input />
-              </Form.Item>
-              <Form.Item name={["user", "role"]} label="Cargo">
-                <Input />
-              </Form.Item>
-              <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-                <Button type="primary" htmlType="submit">
-                  Submit
+                <Button
+                  type="submit"
+                  width="250px"
+                  color="white"
+                  background="#0F4C75"
+                >
+                  Continue
                 </Button>
-              </Form.Item>
-            </Form>
+                <LoginButton onClick={goToLogin}>Ja possui uma conta? Entre aqui</LoginButton>  
+              </Box>
+              
+            </LoginForm>
           </Box>
         </Box>
       </LoginCard>

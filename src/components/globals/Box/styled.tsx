@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from "../../types/types";
+import { Box } from "../../../types/types";
 
 export const SBox = styled.div<Box>`
   width: ${(Box) => Box.width || `100%`};

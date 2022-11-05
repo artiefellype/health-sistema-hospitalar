@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Label } from '../../types/types'; 
+import { Label } from '../../../types/types';
 
 export const SLabel = styled.label<Label>`
     display: flex;

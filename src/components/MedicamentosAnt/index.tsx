@@ -10,7 +10,7 @@ interface Remedio {
   data_inicio: string;
 }
 
-const MedicamentosAnt: React.FC = () => {
+const MedicamentosAnt= (props: any) => {
   const list = [
     {
       nome: 'Remedio 1',

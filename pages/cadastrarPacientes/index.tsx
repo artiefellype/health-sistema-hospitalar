@@ -1,27 +1,37 @@
-import {Label, Painel, Title, Box, FormAnt } from "../../src/components";
-import { SCelula } from "../../src/components/Label/styles";
+import { GetServerSideProps } from "next";
+import { Title,PatientRegistrationPage } from "../../src/components";
+import Home from "../../src/components/Home";
+import { parseCookies } from 'nookies';
 
-export default function CadastrarPacientes(){
-    const Alergias = [
-        "Dermatite atópica",
-        "Dermatite de contato",
-        "Dermatite seborreica",
-        "Dermatite alérgica",
-        "Alergia Alimentar",
-        "Alergia a Insetos",
+export default function CadastrarPacientes() {
+  
 
-        "Alergia a Pelos de Animais",
-    ]
-    return(
-        <div>
-            <Title color={"#064663"}>
-                Cadastrar Pacientes
-            </Title>
-            
-            <FormAnt/>
-                
-            
-        </div>
+  return (
+    <Home>
+      <div>
+        <Title color={"#064663"}>Cadastrar Pacientes</Title>
 
-    )
+        <PatientRegistrationPage />
+      </div>
+    </Home>
+  );
 }
+
+// VERIFICACAO DE TOKENS VIA SERVER-SIDE
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const {['health.token']: token } = parseCookies(ctx)
+  
+    if(!token){
+      return{
+        redirect:{
+          destination:'/',
+          permanent: false
+        }
+      }
+    }
+    return{
+      props:{
+  
+      }
+    }
+  }

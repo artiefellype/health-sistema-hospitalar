@@ -1,17 +1,19 @@
 import { Collapse } from 'antd';
 import React from 'react';
-import Label from '../Label';
+import {Label} from '..';
 
 const { Panel } = Collapse;
 
-const App: React.FC = () => {
+const Exame = (props:any) => {
   const onChange = (key: string | string[]) => {
-    console.log(key);
+    console.log("@>>", key);
   };
 
   const genExtra = (element:string) => (
     <Label> {element }</Label>
   );
+
+  console.log("@>>>>>>>>");
 
   return (
     <Collapse defaultActiveKey={['1']} onChange={onChange}>
@@ -69,4 +71,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Exame;

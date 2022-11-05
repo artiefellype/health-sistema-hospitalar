@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button } from "../../types/types";
+import { Button } from "../../../types/types";
 export const SButton = styled.button<Button>`
     display: flex;
     justify-content: center;

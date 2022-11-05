@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { TitleH1 } from '../../types/types'; 
+import { TitleH1 } from '../../../types/types';
 
 export const SH = styled.h1<TitleH1>`
     font-size: ${(TitleH1) => TitleH1.fontSize || 30}px;

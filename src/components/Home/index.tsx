@@ -1,23 +1,30 @@
 import { Layout, Menu, Button } from "antd";
 import React, { useState } from "react";
 import "antd/dist/antd.css";
-import { NavItems } from "../../src/components";
 import { BiLeftIndent, BiListUl } from "react-icons/bi";
-import { Title } from "../../src/components/";
+import { Title, NavItems } from "..";
 import { Content } from "antd/lib/layout/layout";
+import { destroyCookie } from 'nookies'
+import Router from 'next/router'
 
 const { Header, Footer, Sider } = Layout;
 
 interface props {
     children: React.ReactNode;
+    //selectedKey: string;
 }
 
-const Dashboard = ({ children }: props) => {
+const Home = ({children}:props) => {
     const [collapsed, setCollapsed] = useState(false);
 
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
     };
+
+    function logout(){
+        destroyCookie( undefined, 'health.token');
+        Router.push('/');
+    }
     return (
         <Layout style={{
             height: "100vh"
@@ -52,7 +59,7 @@ const Dashboard = ({ children }: props) => {
                 <Menu
                     theme="dark"
                     mode="inline"
-                    defaultSelectedKeys={["4"]}
+                    defaultSelectedKeys={["2"]}
                     items={NavItems}
                 />
             </Sider>
@@ -72,7 +79,7 @@ const Dashboard = ({ children }: props) => {
                         height: "4rem",
                     }}
                 >
-                    <Button type="primary">Sair</Button>
+                    <Button onClick={logout} type="primary">Sair</Button>
                 </Header>
                 <Content style={{
                     padding: "1rem",
@@ -86,4 +93,5 @@ const Dashboard = ({ children }: props) => {
     );
 };
 
-export default Dashboard;
+export default Home;
+

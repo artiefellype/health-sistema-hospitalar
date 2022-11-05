@@ -30,27 +30,57 @@ export interface TitleH1{
 
 // Input
 export interface Input{
-    padding?: number;
-    margin?: number;
+    padding?: string;
+    margin?: string;
     width?: string;
     height?: string;
     border?: string;
     borderBottom?: string;
-    borderRadius?: number;
+    borderRadius?: string;
     fontSize?: number;
     color?: string;
     colorBorder?: string;
     background?: string;
     placeholderColor?: string;
-    paddingBottom?: number;
-    paddingTop?: number;
-    paddingLeft?: number;
-    paddingRight?: number;
-    marginTop?: number;
-    marginBottom?: number;
-    marginLeft?: number;
-    marginRight?: number;
+    paddingBottom?: string;
+    paddingTop?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    marginTop?: string;
+    marginBottom?: string;
+    marginLeft?: string;
+    marginRight?: string;
     filter?: string;
+}
+
+// Span
+
+export interface Span{
+    display: string;
+    position: string;
+    color: string;
+    fontWeight: string;
+    width?: string;
+    height?: string;
+    border?: string;
+    borderBottom?: string;
+    borderRadius?: string;
+    fontSize?: number;
+    color?: string;
+    colorBorder?: string;
+    background?: string;
+    placeholderColor?: string;
+    padding?: string;
+    paddingBottom?: string;
+    paddingTop?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    margin?: string;
+    marginTop?: string;
+    marginBottom?: string;
+    marginLeft?: string;
+    marginRight?: string;
+
 }
 
 // Painel
@@ -178,3 +208,20 @@ export interface Box{
     right?: string;
     bottom?: string;
 }
+
+// OBJETO DE PACIENTES 
+interface Person {
+    name: string;
+    address: string;
+    allergies: string[];
+    birth_date: string;
+    bloodType: string;
+    cpf: string;
+    email: string;
+    emergencyContacts: string;
+    id: string;
+    mother_name: string;
+    observation: string;
+    rg: string;
+    telephone: string;
+  }

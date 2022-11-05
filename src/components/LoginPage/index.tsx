@@ -1,13 +1,38 @@
-import React from "react";
-import Title from "../Title";
+import React, { useContext, useEffect } from "react";
 import { MdOutlineMedication } from "react-icons/md";
-import Label from "../Label";
-import Box from "../Box";
-import Button from "../Button"
-import { Container, LoginCard, LogoContainer } from "./styles";
-import { Input } from "antd";
+import {
+  Container,
+  LoginCard,
+  LogoContainer,
+  LoginForm,
+  LoginInput,
+  LoginSpan,
+  LoginInputBox,
+  RegisterButton,
+} from "./styles";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../../contexts/AuthContext";
+import Router from "next/router";
+import {Button, Box, Title} from "..";
 
-export default function index() {
+interface FormValues {
+  email: string;
+  password: string;
+}
+
+export default function LoginPage() {
+  const { register, handleSubmit } = useForm<FormValues>();
+  /* Utilizando contexto do componente api */
+  const { signIn } = useContext(AuthContext);
+
+  function goToRegister() {
+    Router.push("/cadastro");
+  }
+  // Para mensages de erro do backend melhor usar essa funcao pra tratar
+  async function handleSignIn(data: FormValues) {
+    //console.log("@>>", data);
+    await signIn(data);
+  }
   return (
     <Container imgUrl="/img/loginImagePr.png">
       <LoginCard>
@@ -43,45 +68,55 @@ export default function index() {
               Por favor insira suas credenciais
             </Title>
           </Box>
-          <Box
-            width="75%"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="flex-start"
-            paddingTop={45}
-          >
-            <Label
-              fontWeight={700}
-              fontSize={12}
-              color="white"
-              background="transparent"
-              paddingTop={12}
+          <LoginForm onSubmit={handleSubmit(handleSignIn)}>
+            <Box
+              width="75%"
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="flex-start"
+              paddingTop={45}
             >
-              Email
-            </Label>
-            <Input bordered={true} placeholder="Insira seu email" />
-            <Label
-              fontWeight={700}
-              fontSize={12}
-              color="white"
-              background="transparent"
-              paddingTop={12}
+              <LoginInputBox>
+                <LoginInput
+                  {...register("email")}
+                  defaultValue=""
+                  name="email"
+                  type="text"
+                  required
+                />
+                <LoginSpan> EMAIL </LoginSpan>
+              </LoginInputBox>
+              <LoginInputBox>
+                <LoginInput
+                  {...register("password")}
+                  name="password"
+                  type="password"
+                  required
+                />
+                <LoginSpan> SENHA </LoginSpan>
+              </LoginInputBox>
+              <RegisterButton onClick={goToRegister}>
+                {" "}
+                Nao possui conta? cadastre-se
+              </RegisterButton>
+            </Box>
+            <Box
+              width="100%"
+              margin={0}
+              flexDirection="column"
+              alignItems="center"
+              paddingTop={45}
             >
-              Senha
-            </Label>
-            <Input.Password bordered={true} placeholder="Insira sua senha" />
-          </Box>
-          <Box
-            width="100%"
-            margin={0}
-            flexDirection="column"
-            alignItems="center"
-            paddingTop={45}
-          >
-            <Button width="250px" color="white" background="#0F4C75">
-              Sign in
-            </Button>
-          </Box>
+              <Button
+                type="submit"
+                width="250px"
+                color="white"
+                background="#0F4C75"
+              >
+                Continue
+              </Button>
+            </Box>
+          </LoginForm>
         </Box>
       </LoginCard>
     </Container>

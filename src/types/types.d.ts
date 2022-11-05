@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import { IconType } from "react-icons/lib";
 
 // Table
@@ -22,31 +23,64 @@ export interface TitleH1{
     margin?: number;
     padding?: number;
     fontSize?: number;
+    fontStyle?: string;
+    fontWeight?: number;
+    paddingBottom?: number;
 }
 
 // Input
 export interface Input{
-    padding?: number;
-    margin?: number;
+    padding?: string;
+    margin?: string;
     width?: string;
     height?: string;
     border?: string;
     borderBottom?: string;
-    borderRadius?: number;
+    borderRadius?: string;
     fontSize?: number;
     color?: string;
     colorBorder?: string;
     background?: string;
     placeholderColor?: string;
-    paddingBottom?: number;
-    paddingTop?: number;
-    paddingLeft?: number;
-    paddingRight?: number;
-    marginTop?: number;
-    marginBottom?: number;
-    marginLeft?: number;
-    marginRight?: number;
+    paddingBottom?: string;
+    paddingTop?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    marginTop?: string;
+    marginBottom?: string;
+    marginLeft?: string;
+    marginRight?: string;
     filter?: string;
+}
+
+// Span
+
+export interface Span{
+    display: string;
+    position: string;
+    color: string;
+    fontWeight: string;
+    width?: string;
+    height?: string;
+    border?: string;
+    borderBottom?: string;
+    borderRadius?: string;
+    fontSize?: number;
+    color?: string;
+    colorBorder?: string;
+    background?: string;
+    placeholderColor?: string;
+    padding?: string;
+    paddingBottom?: string;
+    paddingTop?: string;
+    paddingLeft?: string;
+    paddingRight?: string;
+    margin?: string;
+    marginTop?: string;
+    marginBottom?: string;
+    marginLeft?: string;
+    marginRight?: string;
+
 }
 
 // Painel
@@ -58,6 +92,11 @@ export interface Painel{
     background?: string;
     borderRadius?: number;
     boxShadow?: string;
+    minHeight?: string;
+    justifyContent: string;
+    alignItems: string;
+    display: string;
+    flexDirection: string;
     
 }
 
@@ -101,6 +140,7 @@ export interface Label{
     border?: string;
     borderRadius?: number;
     fontSize?: number;
+    fontWeight?: number;
     color?: string;
     colorBorder?: string;
     background?: string;
@@ -112,6 +152,12 @@ export interface Label{
     marginBottom?: number;
     marginLeft?: number;
     marginRight?: number;
+    justifyContent?: string; 
+}
+
+// Login Components
+export interface Login{
+    imgUrl?: string;
 }
 
 // Form
@@ -141,3 +187,41 @@ export interface Textarea{
     outline?: string;
     background?: string;
 }
+
+// Box
+export interface Box{
+    width?: string;
+    height?: string;
+    display?: string;
+    flexDirection?: string;
+    justifyContent?: string;
+    alignItems?: string;
+    padding?: string;
+    paddingTop?: number;
+    margin?: string;
+    background?: string;
+    backgroundColor?: string;
+    borderRadius?: number;
+    position?: string;
+    top?: string;
+    left?: string;
+    right?: string;
+    bottom?: string;
+}
+
+// OBJETO DE PACIENTES 
+interface Person {
+    name: string;
+    address: string;
+    allergies: string[];
+    birth_date: string;
+    bloodType: string;
+    cpf: string;
+    email: string;
+    emergencyContacts: string;
+    id: string;
+    mother_name: string;
+    observation: string;
+    rg: string;
+    telephone: string;
+  }

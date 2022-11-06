@@ -3,8 +3,9 @@ import type { AppProps } from "next/app";
 import { AuthProvider } from "../src/contexts/AuthContext";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Home from "../src/components/Home";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
 
 // FUNCAO DE LOADING NA TELA DURANTE MODIFICACAO DAS ROTAS
 
@@ -37,15 +38,22 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   return null
 
   // }
-
+  if (router.pathname.includes("/sistema")) {
+    return (
+      <AuthProvider>
+    <> 
+      <Home>
+        <Component {...pageProps} />
+      </Home>
+    </>
+  </AuthProvider>
+    );
+  }
   return (
     <AuthProvider>
-      
       <> 
-        {/* <Loading /> */}
         <Component {...pageProps} />
       </>
-      
     </AuthProvider>
   );
 }

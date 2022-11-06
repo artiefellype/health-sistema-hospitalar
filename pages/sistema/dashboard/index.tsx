@@ -1,10 +1,10 @@
 import { GetServerSideProps } from "next";
 import React, { useEffect } from "react";
-import { Painel } from "../../src/components";
-import { Chart, Box, Title, Label } from "../../src/components";
-import vars from "../../src/components/variables";
-import { api } from "../api/api";
-import Home from "../../src/components/Home";
+import { Painel } from "../../../src/components";
+import { Chart, Box, Title, Label } from "../../../src/components";
+import vars from "../../../src/components/variables";
+import { api } from "../../api/api";
+import Home from "../../../src/components/Home";
 import { parseCookies} from 'nookies'
 
 export default function Dashboard() {
@@ -15,7 +15,7 @@ export default function Dashboard() {
 
 
   return (
-    <Home>
+    
       <>
         <Box>
           <Painel
@@ -80,7 +80,7 @@ export default function Dashboard() {
           <Chart />
         </Painel>
       </>
-    </Home>
+    
   );
 }
 

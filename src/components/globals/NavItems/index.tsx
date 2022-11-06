@@ -25,8 +25,8 @@ const getItem = (
 }
 
 const NavItems: MenuItem[] = [
-  getItem(<Link href="/dashboard">Dashboard</Link>, "2", <PieChartOutlined />),
-  getItem(<Link href="/pacientes">Pacientes</Link>, "1", <DesktopOutlined />),
+  getItem(<Link href="/sistema/dashboard">Dashboard</Link>, "2", <PieChartOutlined />),
+  getItem(<Link href="/sistema/pacientes">Pacientes</Link>, "1", <DesktopOutlined />),
 ];
 
 export default NavItems;

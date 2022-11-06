@@ -2,11 +2,10 @@ import {
   DescriptionAnt,
   ExameAnt,
   MedicamentosAnt,
-} from "../../src/components";
+} from "../../../src/components";
 
 import { Tabs } from "antd";
 import React from "react";
-import Home from "../../src/components/Home";
 import { GetServerSideProps } from "next";
 import { parseCookies } from "nookies";
 import { useRouter } from "next/router";
@@ -23,7 +22,7 @@ export default function Paciente() {
   //console.log("@PARAMETRO>>", param)
 
   return (
-    <Home>
+    
       <Tabs
         type="card"
         defaultActiveKey="1"
@@ -50,7 +49,7 @@ export default function Paciente() {
           },
         ]}
       />
-    </Home>
+    
   );
 }
 

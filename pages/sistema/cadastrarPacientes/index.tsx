@@ -1,19 +1,18 @@
 import { GetServerSideProps } from "next";
-import { Title,PatientRegistrationPage } from "../../src/components";
-import Home from "../../src/components/Home";
+import { Title,PatientRegistrationPage } from "../../../src/components";
+import Home from "../../../src/components/Home";
 import { parseCookies } from 'nookies';
 
 export default function CadastrarPacientes() {
   
 
   return (
-    <Home>
+    
       <div>
         <Title color={"#064663"}>Cadastrar Pacientes</Title>
-
         <PatientRegistrationPage />
       </div>
-    </Home>
+    
   );
 }
 

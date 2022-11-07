@@ -39,7 +39,7 @@ const MedicamentosAnt= (props: any) => {
           dataSource={list}
           renderItem={item => (
             <List.Item
-              actions={[item.frequencia, item.data_inicio]}
+              actions={[<a key="list-loadmore-edit">{item.frequencia}</a>, <a key="list-loadmore-more">{item.data_inicio}</a>]}
             >
               
                 <List.Item.Meta

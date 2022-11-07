@@ -30,7 +30,7 @@ export default function Pacientes() {
   const [src, setSrc] = useState("");
 
   const goToRegister = () => {
-    Router.push("/cadastrarPacientes");
+    Router.push("cadastrarPacientes");
   };
 
   const ActionIcons = (el: any) => {

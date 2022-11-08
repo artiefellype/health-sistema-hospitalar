@@ -225,3 +225,48 @@ interface Person {
     rg: string;
     telephone: string;
   }
+
+
+// DATATYPE PERSON
+  interface DataType {
+    key: React.Key;
+    Id: string;
+    Nome?: string;
+    DataEntrada: string;
+    Acoes: any;
+  }
+
+// PRONTUARIO
+
+
+interface Prontuario {
+    id: string;
+    status: string;
+    qrcode: string;
+    observation: string;
+    return: boolean;
+    paciente: Person;
+    symptoms: string;
+    medication: Medication[];
+    operations: Operations[];
+    priority: number
+  }
+
+interface Medication {
+    name: string;
+    value: number;
+    userId: string;
+    create_at: string;
+    frequency: number;
+    description: string;
+    measurement: string;
+    professionalName: string;
+  }
+  
+  interface Operations {
+    name: string;
+    result: string;
+    userId: string;
+    professionalName: string;
+    dateTimeOfAplication: string;
+  }

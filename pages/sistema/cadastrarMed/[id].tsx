@@ -1,15 +1,16 @@
+import React, { useEffect, useState } from "react";
 import { GetServerSideProps } from "next";
-import { Title, PatientRegistrationPage } from "../../../src/components";
-import Home from "../../../src/components/Home";
 import { parseCookies } from "nookies";
+import Router, { useRouter } from "next/router";
+import { MedRegister } from "../../../src/components";
+import { Prontuario } from "../../../src/types/types";
+import { api } from "../../api/api";
 
-export default function CadastrarPacientes() {
-  return (
-    <div>
-      <Title color={"#064663"}>Cadastrar Pacientes</Title>
-      <PatientRegistrationPage />
-    </div>
-  );
+export default function Paciente() {
+  const router = useRouter();
+  const param = router.query.id;
+
+  return <MedRegister id={param} />;
 }
 
 // VERIFICACAO DE TOKENS VIA SERVER-SIDE

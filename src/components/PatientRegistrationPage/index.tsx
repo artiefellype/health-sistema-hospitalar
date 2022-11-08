@@ -1,26 +1,24 @@
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { Person } from "../../types/types";
-import { LoginForm, LoginInputBox, LoginSpan} from "./styles";
-import {Button, Painel, Box, Input} from "..";
+import { LoginForm, LoginInputBox, LoginSpan, LoginInput } from "./styles";
+import { Button, Painel, Box } from "..";
 import { api } from "../../../pages/api/api";
+import { useEffect } from "react";
 
 const PatientRegistrationPage = () => {
   const { register, handleSubmit } = useForm<Person>();
 
-  function goToProntuarios() {
-    Router.push("/cadastrarProntuario");
-  }
   // Para mensages de erro do backend melhor usar essa funcao pra tratar
+
   function handleRegisterPatient(data: Person) {
-    data.allergies =((data.allergies as unknown) as string).split(",")
-    //console.log("DEPOIS@>>", data);
+    data.allergies = (data.allergies as unknown as string).split(",");
     api
       .post("paciente", data)
-      .then((response) => console.log("RESPONSE=>", response.data))
+      .then((response) => console.log("==> OK <=="))
       .catch((error) => console.log(error));
 
-      Router.push("/pacientes");
+    Router.push("/sistema/pacientes");
   }
 
   return (
@@ -36,14 +34,14 @@ const PatientRegistrationPage = () => {
           >
             <LoginInputBox>
               <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Nome </LoginSpan>
+                <LoginSpan> Nome </LoginSpan>
               </Box>
-              
-              <Input
+
+              <LoginInput
                 {...register("name")}
                 //defaultValue=""
                 name="name"
@@ -52,14 +50,14 @@ const PatientRegistrationPage = () => {
               />
             </LoginInputBox>
             <LoginInputBox>
-            <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+              <Box
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Nome da mãe </LoginSpan>
+                <LoginSpan> Nome da mãe </LoginSpan>
               </Box>
-              <Input
+              <LoginInput
                 {...register("mother_name")}
                 name="mother_name"
                 type="text"
@@ -72,31 +70,31 @@ const PatientRegistrationPage = () => {
               flexDirection="row"
               justifyContent="center"
               alignItems="center"
-              style={{padding: "0 2.5%"}}
+              style={{ padding: "0 2.5%" }}
             >
               <LoginInputBox>
-              <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-              >
-              <LoginSpan> Data de nascimento </LoginSpan>
-              </Box>
-                <Input
+                <Box
+                  width="90%"
+                  justifyContent="flex-start"
+                  alignItems="flex-start"
+                >
+                  <LoginSpan> Data de nascimento </LoginSpan>
+                </Box>
+                <LoginInput
                   {...register("birth_date")}
                   name="birth_date"
                   type="date"
                 />
               </LoginInputBox>
               <LoginInputBox>
-              <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-              >
-              <LoginSpan> Contato </LoginSpan>
-              </Box>
-                <Input
+                <Box
+                  width="90%"
+                  justifyContent="flex-start"
+                  alignItems="flex-start"
+                >
+                  <LoginSpan> Contato </LoginSpan>
+                </Box>
+                <LoginInput
                   {...register("telephone")}
                   name="telephone"
                   type="tel"
@@ -111,17 +109,17 @@ const PatientRegistrationPage = () => {
               flexDirection="row"
               justifyContent="center"
               alignItems="center"
-              style={{padding: "0 2.5%"}}
+              style={{ padding: "0 2.5%" }}
             >
               <LoginInputBox>
-              <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-              >
-              <LoginSpan> CPF </LoginSpan>
-              </Box>
-                <Input
+                <Box
+                  width="90%"
+                  justifyContent="flex-start"
+                  alignItems="flex-start"
+                >
+                  <LoginSpan> CPF </LoginSpan>
+                </Box>
+                <LoginInput
                   {...register("cpf")}
                   name="cpf"
                   type="text"
@@ -129,14 +127,14 @@ const PatientRegistrationPage = () => {
                 />
               </LoginInputBox>
               <LoginInputBox>
-              <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
-              >
-              <LoginSpan> RG </LoginSpan>
-              </Box>
-                <Input
+                <Box
+                  width="90%"
+                  justifyContent="flex-start"
+                  alignItems="flex-start"
+                >
+                  <LoginSpan> RG </LoginSpan>
+                </Box>
+                <LoginInput
                   {...register("rg")}
                   name="rg"
                   type="text"
@@ -146,14 +144,14 @@ const PatientRegistrationPage = () => {
             </Box>
 
             <LoginInputBox>
-            <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+              <Box
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Email </LoginSpan>
+                <LoginSpan> Email </LoginSpan>
               </Box>
-              <Input
+              <LoginInput
                 {...register("email")}
                 name="email"
                 type="email"
@@ -161,14 +159,14 @@ const PatientRegistrationPage = () => {
               />
             </LoginInputBox>
             <LoginInputBox>
-            <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+              <Box
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Endereço </LoginSpan>
+                <LoginSpan> Endereço </LoginSpan>
               </Box>
-              <Input
+              <LoginInput
                 {...register("address")}
                 name="address"
                 type="text"
@@ -176,14 +174,14 @@ const PatientRegistrationPage = () => {
               />
             </LoginInputBox>
             <LoginInputBox>
-            <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+              <Box
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Tipo sanguíneo </LoginSpan>
+                <LoginSpan> Tipo sanguíneo </LoginSpan>
               </Box>
-              <Input
+              <LoginInput
                 {...register("bloodType")}
                 name="bloodType"
                 type="text"
@@ -191,14 +189,14 @@ const PatientRegistrationPage = () => {
               />
             </LoginInputBox>
             <LoginInputBox>
-            <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+              <Box
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Alergias </LoginSpan>
+                <LoginSpan> Alergias </LoginSpan>
               </Box>
-              <Input
+              <LoginInput
                 {...register("allergies")}
                 name="allergies"
                 type="text"
@@ -206,14 +204,14 @@ const PatientRegistrationPage = () => {
               />
             </LoginInputBox>
             <LoginInputBox>
-            <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+              <Box
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Contato de emergência </LoginSpan>
+                <LoginSpan> Contato de emergência </LoginSpan>
               </Box>
-              <Input
+              <LoginInput
                 {...register("emergencyContacts")}
                 name="emergencyContacts"
                 type="tel"
@@ -221,14 +219,14 @@ const PatientRegistrationPage = () => {
               />
             </LoginInputBox>
             <LoginInputBox>
-            <Box
-              width="90%"
-              justifyContent="flex-start"
-              alignItems="flex-start"
+              <Box
+                width="90%"
+                justifyContent="flex-start"
+                alignItems="flex-start"
               >
-              <LoginSpan> Observações </LoginSpan>
+                <LoginSpan> Observações </LoginSpan>
               </Box>
-              <Input
+              <LoginInput
                 {...register("observation")}
                 name="observation"
                 type="text"
@@ -251,14 +249,6 @@ const PatientRegistrationPage = () => {
               background="#0F4C75"
             >
               Cadastrar Paciente
-            </Button>
-            <Button
-              width="200px"
-              color="white"
-              background="#0F4C75"
-              onClick={goToProntuarios}
-            >
-              Cadastro de Prontuario
             </Button>
           </Box>
         </LoginForm>

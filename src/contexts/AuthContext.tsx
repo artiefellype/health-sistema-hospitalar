@@ -28,7 +28,6 @@ export function AuthProvider({ children }: any) {
       axios
         .post("http://localhost:3000/auth/login", article)
         .then((response) => {
-            console.log(response.data)
             let token = response.data.access_token;
             setCookie(undefined, 'health.token', token, {
                 maxAge: 60 * 60, // 1 hora de sessao apos logado
@@ -38,7 +37,7 @@ export function AuthProvider({ children }: any) {
             api.defaults.headers['Authorization'] = `Bearer ${token}`
 
             //Redirecionando utilizando router do next
-            Router.push('/dashboard');
+            Router.push('/sistema/dashboard');
         })
         .catch((error) => console.log("ERROR@>>", error));
     

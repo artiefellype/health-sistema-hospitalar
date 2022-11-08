@@ -2,6 +2,7 @@ import {
   DescriptionAnt,
   ExameAnt,
   MedicamentosAnt,
+  QRCode
 } from "../../../src/components";
 
 import { Tabs } from "antd";
@@ -11,15 +12,13 @@ import { parseCookies } from "nookies";
 import { useRouter } from "next/router";
 
 const onChange = (key: string) => {
-  console.log(key);
+ // console.log(key);
 };
 
 export default function Paciente() {
 
   const router = useRouter();
   const param = router.query.id;
-
-  //console.log("@PARAMETRO>>", param)
 
   return (
     
@@ -46,6 +45,11 @@ export default function Paciente() {
             label: `Exames`,
             key: "3",
             children: <ExameAnt id={param}/>,
+          },
+          {
+            label: `QRCode`,
+            key: "4",
+            children: <QRCode id={param}/>,
           },
         ]}
       />

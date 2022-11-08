@@ -24,11 +24,9 @@ interface FormValuesT {
 }
 
 export default function RegistrationPage() {
-  const [dataa, setData] = useState<FormValuesT[]>([]);
   const { register, handleSubmit } = useForm<FormValuesT>();
   // Para mensages de erro do backend melhor usar essa funcao pra tratar
   async function handleSignIn(data: FormValuesT) {
-    //console.log("@>>", data);
     api
       .post("/user", data)
       .then((response) => console.log("OK"))

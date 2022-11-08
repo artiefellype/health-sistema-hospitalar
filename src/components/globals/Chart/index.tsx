@@ -4,42 +4,14 @@ import { Line } from '@ant-design/plots';
 const Chart = () => {
   const data = [
     {
-      date: '26/09',
+      date: '26/09/2020',
       value: 3,
     },
-    {
-      date: '27/09',
-      value: 4,
-    },
-    {
-      date: '28/09',
-      value: 3,
-    },
-    {
-      date: '29/09',
-      value: 5,
-    },
-    {
-      date: '30/09',
-      value: 5,
-    },
-    {
-      date: '01/10',
-      value: 6,
-    },
-    {
-      date: '02/10',
-      value: 7,
-    },
-    {
-      date: '03/10',
-      value: 9,
-    },
-    {
-      date: '04/10',
-      value: 13,
-    },
+    
   ];
+
+
+  
   const config = {
     data,
     xField: 'date',

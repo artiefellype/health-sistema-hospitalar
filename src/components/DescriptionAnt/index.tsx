@@ -1,56 +1,85 @@
-import { Badge, Descriptions } from 'antd';
-import React, { useEffect, useState } from 'react';
-import { api } from '../../../pages/api/api';
-import { Person } from '../../types/types';
+import { Badge, Descriptions } from "antd";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../pages/api/api";
+import { Medication, Operations, Person, Prontuario } from "../../types/types";
+import { Button } from "..";
+import Router from "next/router";
 
-interface Prontuario {
-  status: string;
-  observation: string;
-  return: boolean;
-  pacienteId: string;
-  symptoms: string;
-  Medication: any;
-  Operation: any;
-}
-
-export default function App(props:any ){
-
-  const [ paciente, setPaciente ] = useState<Person>()
-  const [ prontuario, setProntuario ] = useState<Prontuario>()
+export default function App(props: any) {
+  const [paciente, setPaciente] = useState<Person>();
+  const [prontuario, setProntuario] = useState<Prontuario>();
 
   useEffect(() => {
     api
-      .get(`paciente/${props.id}`)
+      .get(`/prontuario`)
       .then((response) => {
-        //console.log("PACIENTE ESP: ", response.data)
-        setPaciente(response.data)
-        console.log("DATA PACIENTE ESP: ", paciente)
+        response.data.map((el: Prontuario) => {
+          if (el.paciente) {
+            if (el.paciente.id == props.id || el.id == props.id) {
+              setPaciente(el.paciente);
+              setProntuario(el);
+            }
+          }
+        });
       })
       .catch((error) => console.log("PACIENTES ESP_ERROR@>", error));
   }, []);
 
-  
+  function goToProntuarios() {
+    Router.push(`/sistema/cadastrarProntuario/${prontuario?.id}`);
+  }
 
- 
-  
+  const goToRegister = () => {
+    Router.push(`/sistema/cadastrarPacientes`);
+  };
+
   return (
-    <Descriptions layout="vertical" bordered>
-      <Descriptions.Item label="Nome">{paciente?.name}</Descriptions.Item>
-      <Descriptions.Item label="Nome da Mãe">{paciente?.mother_name}</Descriptions.Item>
-      <Descriptions.Item label="Status">
-        <Badge status="processing" text="Ativo" />
-      </Descriptions.Item>
-      <Descriptions.Item label="Data de Admissão">20/10/2022</Descriptions.Item>
-      <Descriptions.Item label="Email" span={2}>
-        {paciente?.email}
-      </Descriptions.Item>
-      <Descriptions.Item label="Telefone">{paciente?.telephone}</Descriptions.Item>
-      <Descriptions.Item label="Dieta" span={2}>Indefinido</Descriptions.Item>
-      <Descriptions.Item label="Diagnostico:">
-        {paciente?.observation}
-      </Descriptions.Item>
-    </Descriptions>
+    <>
+      {paciente ? (
+        <>
+          <Descriptions layout="vertical" bordered>
+            <Descriptions.Item label="Nome">{paciente?.name}</Descriptions.Item>
+            <Descriptions.Item label="Nome da Mãe">
+              {paciente?.mother_name}
+            </Descriptions.Item>
+            <Descriptions.Item label="Status">
+              <Badge
+                status={prontuario?.status == "Ativo" ? "success" : "warning"}
+                text={prontuario?.status}
+              />
+            </Descriptions.Item>
+            <Descriptions.Item label="Email" span={2}>
+              {paciente?.email}
+            </Descriptions.Item>
+            <Descriptions.Item label="Telefone">
+              {paciente?.telephone}
+            </Descriptions.Item>
+            <Descriptions.Item label="Observação">
+              {prontuario?.observation}
+            </Descriptions.Item>
+          </Descriptions>
+
+          {/* <Button
+            width="200px"
+            color="white"
+            background="#0F4C75"
+            onClick={goToRegister}
+          >
+            Edit
+          </Button> */}
+        </>
+      ) : (
+        <Button
+          type="submit"
+          width="200px"
+          color="white"
+          background="#0F4C75"
+          onClick={goToProntuarios}
+        >
+          Criar um Prontuário
+        </Button>
+      )}
+    </>
   );
-  
-} 
- App;
+}
+App;

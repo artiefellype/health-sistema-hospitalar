@@ -16,6 +16,17 @@ export const LoginInputBox = styled.div`
     justify-content: center;
     align-items: center;
 `
+export const LoginInput = styled.input`
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0px;
+    border: 1px solid rgba(255,255,255, 0.25);
+    background: #e7e4e4;
+    border-radius: 5px;
+    outline: none;
+    color: #2a2a2a;
+    font-size: 1em;
+`
 
 
 export const LoginSpan = styled.span`

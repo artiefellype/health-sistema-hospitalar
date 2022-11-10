@@ -132,7 +132,7 @@ export default function Pacientes() {
           width: "100%",
           height: "100%",
           backgroundColor: "rgba(0,0,0,0.5)",
-          zIndex: 9999,
+          zIndex: 9999
         }}
       >
         <Image src={src} alt="QRCode" width={200} height={200} />

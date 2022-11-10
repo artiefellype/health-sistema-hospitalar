@@ -1,72 +1,71 @@
-import { Collapse } from 'antd';
-import React from 'react';
-import Label from '../Label';
+import { Collapse } from "antd";
+import Router from "next/router";
+import React, { useEffect, useState } from "react";
+import { Label, Button } from "..";
+import { api } from "../../../pages/api/api";
+import { Person, Prontuario } from "../../types/types";
 
 const { Panel } = Collapse;
 
-const App: React.FC = () => {
+const Exame = (props: any) => {
   const onChange = (key: string | string[]) => {
-    console.log(key);
+    console.log("@>>", key);
   };
 
-  const genExtra = (element:string) => (
-    <Label> {element }</Label>
-  );
+  const genExtra = (element: string) => <Label> {element} </Label>;
+
+  const [paciente, setPaciente] = useState<Person>();
+  const [prontuario, setProntuario] = useState<Prontuario>();
+
+  useEffect(() => {
+    api
+      .get(`/prontuario`)
+      .then((response) => {
+        response.data.map((el: Prontuario) => {
+          if (el.paciente) {
+            if (el.paciente.id == props.id || el.id == props.id) {
+              setPaciente(el.paciente);
+              setProntuario(el);
+            }
+          }
+        });
+      })
+      .catch((error) => console.log("PACIENTES ESP_ERROR@>", error));
+  }, []);
+  console.log(prontuario?.operations);
+  function goToExamRegister() {
+    Router.push(`/sistema/cadastrarExame/${prontuario?.id}`);
+  }
 
   return (
-    <Collapse defaultActiveKey={['1']} onChange={onChange}>
-      <Panel header="Hemograma" key="1" extra={genExtra("Responsavel 1")}>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Hendrerit gravida rutrum quisque non tellus orci ac. Ornare arcu odio ut sem nulla pharetra diam sit.</p>
-      </Panel>
-      <Panel header="Cálcio" key="2" extra={genExtra("Responsavel 2")}>
-        <p>Fermentum et sollicitudin ac orci phasellus. Donec massa sapien faucibus et molestie ac feugiat sed. 
-            Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. In mollis nunc sed id semper risus.
-            Posuere ac ut consequat semper. Ac feugiat sed lectus vestibulum mattis. Laoreet non curabitur gravida 
-            arcu ac tortor. Et magnis dis parturient montes nascetur ridiculus mus mauris. Elementum sagittis vitae et leo duis ut diam. 
-            Amet volutpat consequat mauris nunc congue nisi vitae. Diam in arcu cursus euismod quis viverra.</p>
-      </Panel>
-      <Panel header="CPK" key="3" extra={genExtra("Responsavel 3")}>
-      <p>Fermentum et sollicitudin ac orci phasellus. Donec massa sapien faucibus et molestie ac feugiat sed. 
-            Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. In mollis nunc sed id semper risus.
-            Posuere ac ut consequat semper. Ac feugiat sed lectus vestibulum mattis. Laoreet non curabitur gravida 
-            arcu ac tortor. Et magnis dis parturient montes nascetur ridiculus mus mauris. Elementum sagittis vitae et leo duis ut diam. 
-            Amet volutpat consequat mauris nunc congue nisi vitae. Diam in arcu cursus euismod quis viverra.</p>
-      </Panel>
-      <Panel header="UREIA E CREATINA" key="4" extra={genExtra("Responsavel 4")}>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Hendrerit gravida rutrum quisque non tellus orci ac. Ornare arcu odio ut sem nulla pharetra diam sit.</p>
-      </Panel>
-      <Panel header="COLESTEROL E TRIGLICERÍDEOS" key="5" extra={genExtra("Responsavel 5")}>
-        <p>Fermentum et sollicitudin ac orci phasellus. Donec massa sapien faucibus et molestie ac feugiat sed. 
-            Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. In mollis nunc sed id semper risus.
-            Posuere ac ut consequat semper. Ac feugiat sed lectus vestibulum mattis. Laoreet non curabitur gravida 
-            arcu ac tortor. Et magnis dis parturient montes nascetur ridiculus mus mauris. Elementum sagittis vitae et leo duis ut diam. 
-            Amet volutpat consequat mauris nunc congue nisi vitae. Diam in arcu cursus euismod quis viverra.</p>
-      </Panel>
-      <Panel header="TGO (AST) E TGP (ALT)" key="6" extra={genExtra("Responsavel 6")}>
-      <p>Fermentum et sollicitudin ac orci phasellus. Donec massa sapien faucibus et molestie ac feugiat sed. 
-            Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. In mollis nunc sed id semper risus.
-            Posuere ac ut consequat semper. Ac feugiat sed lectus vestibulum mattis. Laoreet non curabitur gravida 
-            arcu ac tortor. Et magnis dis parturient montes nascetur ridiculus mus mauris. Elementum sagittis vitae et leo duis ut diam. 
-            Amet volutpat consequat mauris nunc congue nisi vitae. Diam in arcu cursus euismod quis viverra.</p>
-      </Panel>
-      <Panel header="TSH E T4 LIVRE" key="7" extra={genExtra("Responsavel 7")}>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Hendrerit gravida rutrum quisque non tellus orci ac. Ornare arcu odio ut sem nulla pharetra diam sit.</p>
-      </Panel>
-      <Panel header="ELETROCARDIOGRAMA" key="8" extra={genExtra("Responsavel 8")}>
-        <p>Fermentum et sollicitudin ac orci phasellus. Donec massa sapien faucibus et molestie ac feugiat sed. 
-            Volutpat ac tincidunt vitae semper quis lectus nulla at volutpat. In mollis nunc sed id semper risus.
-            Posuere ac ut consequat semper. Ac feugiat sed lectus vestibulum mattis. Laoreet non curabitur gravida 
-            arcu ac tortor. Et magnis dis parturient montes nascetur ridiculus mus mauris. Elementum sagittis vitae et leo duis ut diam. 
-            Amet volutpat consequat mauris nunc congue nisi vitae. Diam in arcu cursus euismod quis viverra.</p>
-      </Panel>
-    </Collapse>
+    <>
+      {prontuario?.operations && (
+        <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+          {prontuario?.operations.map((op, index) => {
+            return (
+              <Panel
+                header={op.name}
+                key={index}
+                extra={genExtra(op.professionalName)}
+              >
+                <p>{op.result}</p>
+              </Panel>
+            );
+          })}
+        </Collapse>
+      )}
+
+      <Button
+        type="submit"
+        width="200px"
+        color="white"
+        background="#0F4C75"
+        onClick={goToExamRegister}
+      >
+        Novo
+      </Button>
+    </>
   );
 };
 
-export default App;
+export default Exame;

@@ -1,15 +1,42 @@
-import Title from './Title';
-import RegistrationPage from './RegistrationPage';
-import Painel from './Painel';
-import Label from './Label';
-import Box from './Box';
-import TableAnt from './TableAnt';
-import FormAnt from './FormAnt';
-import DescriptionAnt from './DescriptionAnt';
-import ExameAnt from './ExameAnt';
-import NavItems from './NavItems';
-import Chart from './Chart';
-import MedicamentosAnt from './MedicamentosAnt';
-import LoginPage from './LoginPage';
-export {Title, Painel, NavItems, Chart, Label, Box, TableAnt, FormAnt, DescriptionAnt, ExameAnt,LoginPage,MedicamentosAnt,RegistrationPage};
-
+import Title from "./globals/Title";
+import RegistrationPage from "./RegistrationPage";
+import Button from "./globals/Button";
+import Painel from "./globals/Painel";
+import Label from "./globals/Label";
+import Box from "./globals/Box";
+import Span from "./globals/Span";
+import PacientesPage from "./PacientesPage";
+import PatientRegistrationPage from "./PatientRegistrationPage";
+import DescriptionAnt from "./DescriptionAnt";
+import ExameAnt from "./ExameAnt";
+import NavItems from "./globals/NavItems";
+import Input from "./globals/Input";
+import Chart from "./globals/Chart";
+import MedicamentosAnt from "./MedicamentosAnt";
+import LoginPage from "./LoginPage";
+import Prontuario from "./prontuarioRegistrationPage";
+import MedRegister from "./MedRegistrationPage";
+import ExamRegister from "./ExameRegistrationPage";
+import QRCode from "./QRCodeAnt";
+export {
+  Title,
+  Prontuario,
+  Button,
+  MedRegister,
+  ExamRegister,
+  Painel,
+  NavItems,
+  Input,
+  Span,
+  Chart,
+  Label,
+  Box,
+  QRCode,
+  PacientesPage,
+  PatientRegistrationPage,
+  DescriptionAnt,
+  ExameAnt,
+  LoginPage,
+  MedicamentosAnt,
+  RegistrationPage,
+};

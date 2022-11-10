@@ -1,23 +1,85 @@
-import { Badge, Descriptions } from 'antd';
-import React from 'react';
+import { Badge, Descriptions } from "antd";
+import React, { useEffect, useState } from "react";
+import { api } from "../../../pages/api/api";
+import { Medication, Operations, Person, Prontuario } from "../../types/types";
+import { Button } from "..";
+import Router from "next/router";
 
-const App: React.FC = () => (
-  <Descriptions layout="vertical" bordered>
-    <Descriptions.Item label="Nome">João Gomes dos Santos</Descriptions.Item>
-    <Descriptions.Item label="Nome da Mãe">Capitu Gomes dos Santos</Descriptions.Item>
-    <Descriptions.Item label="Status">
-      <Badge status="processing" text="Ativo" />
-    </Descriptions.Item>
-    <Descriptions.Item label="Data de Admissão">20/10/2022</Descriptions.Item>
-    <Descriptions.Item label="Email" span={2}>
-      walterzinho@gmail.com
-    </Descriptions.Item>
-    <Descriptions.Item label="Telefone">(84) 99103-6182</Descriptions.Item>
-    <Descriptions.Item label="Dieta" span={2}>Indefinido</Descriptions.Item>
-    <Descriptions.Item label="Diagnostico:">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </Descriptions.Item>
-  </Descriptions>
-);
+export default function App(props: any) {
+  const [paciente, setPaciente] = useState<Person>();
+  const [prontuario, setProntuario] = useState<Prontuario>();
 
-export default App;
+  useEffect(() => {
+    api
+      .get(`/prontuario`)
+      .then((response) => {
+        response.data.map((el: Prontuario) => {
+          if (el.paciente) {
+            if (el.paciente.id == props.id || el.id == props.id) {
+              setPaciente(el.paciente);
+              setProntuario(el);
+            }
+          }
+        });
+      })
+      .catch((error) => console.log("PACIENTES ESP_ERROR@>", error));
+  }, []);
+
+  function goToProntuarios() {
+    Router.push(`/sistema/cadastrarProntuario/${prontuario?.id}`);
+  }
+
+  const goToRegister = () => {
+    Router.push(`/sistema/cadastrarPacientes`);
+  };
+
+  return (
+    <>
+      {paciente ? (
+        <>
+          <Descriptions layout="vertical" bordered>
+            <Descriptions.Item label="Nome">{paciente?.name}</Descriptions.Item>
+            <Descriptions.Item label="Nome da Mãe">
+              {paciente?.mother_name}
+            </Descriptions.Item>
+            <Descriptions.Item label="Status">
+              <Badge
+                status={prontuario?.status == "Ativo" ? "success" : "warning"}
+                text={prontuario?.status}
+              />
+            </Descriptions.Item>
+            <Descriptions.Item label="Email" span={2}>
+              {paciente?.email}
+            </Descriptions.Item>
+            <Descriptions.Item label="Telefone">
+              {paciente?.telephone}
+            </Descriptions.Item>
+            <Descriptions.Item label="Observação">
+              {prontuario?.observation}
+            </Descriptions.Item>
+          </Descriptions>
+
+          {/* <Button
+            width="200px"
+            color="white"
+            background="#0F4C75"
+            onClick={goToRegister}
+          >
+            Edit
+          </Button> */}
+        </>
+      ) : (
+        <Button
+          type="submit"
+          width="200px"
+          color="white"
+          background="#0F4C75"
+          onClick={goToProntuarios}
+        >
+          Criar um Prontuário
+        </Button>
+      )}
+    </>
+  );
+}
+App;
